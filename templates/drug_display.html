@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Drug Dictionary
+{% endblock %}
+
+
+{% block container %}
+<br>
+<br>
+<br>
+<div class="container"> 
+	<section class="stocks">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Pillname</th>
+					<th>SideEffects</th>
+					<th>Warning</th>
+					<th>Dosage</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td>{{data.pillname}}</td>
+					<td>{{data.sideeffects}}</td>
+					<td>{{data.warning}}</td>
+					<td>{{data.dosage}}</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</div>
+
+
+{% endblock %}

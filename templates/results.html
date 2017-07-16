@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %} Search {% endblock %}
+
+{% block container%}
+<br>
+<br>
+<br>
+<div class="container"> 
+  <div class="row">
+    <div class="col-md-4">
+      <form role="search" action="{% url 'search' %}">
+        <div class="input-group">
+          <input type="text" class="form-control" name="q" placeholder="Search First Aid"
+          value="{{ querystring }}" required>
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="container"> 
+  <div class="row">
+    {% if results %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Situations</th>
+          <th>Guidelines</th>
+          <th>Treatment</th>
+          <th></th>
+        </tr>
+      </thead>
+      {% for result in results %}
+      <ul class="users-results">
+
+        <div>
+          <tbody>
+
+            <tr>
+              <td>{{result.situations}}</td>
+              <td>{{result.guidelines}}</td>
+              <td>{{result.treatment}}</td>
+
+            </tr>
+          </tbody>
+        </div>
+
+      </ul>
+      {% endfor %}
+    </table>
+    {% else %}
+    <h4 class="no-result">&nbsp;&nbsp;No First Aid found :(</h4>
+    {% endif %}
+  </div>
+</div>
+{% endblock%}

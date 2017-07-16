@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	First Aid Upload
+{% endblock %}
+
+{% block container %}
+<br>
+<br>
+<br>
+{% if messages %}
+<ul class="messages">
+	{% for message in messages %}
+	<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+<div class="container"> 
+<form method="post" enctype="multipart/form-data">
+
+	{% csrf_token %}
+	Situations:<br>
+	{{form.situations}}<br>
+	Guidelines:<br>
+	{{form.guidelines}}<br>
+	Treatment:<br>
+	{{form.treatment}}<br>
+
+	<input type="submit" name="submit" value="submit form"></input>
+</form>
+</div>
+
+
+{% endblock %}

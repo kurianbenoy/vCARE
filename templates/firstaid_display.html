@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+First Aid
+{% endblock %}
+
+
+{% block container %}
+<br>
+<br>
+<br>
+<div class="container"> 
+	<section class="stocks">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Situations</th>
+					<th>Guidelines</th>
+					<th>Treatment</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td>{{data.situations}}</td>
+					<td>{{data.guidelines}}</td>
+					<td>{{data.treatment}}</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</div>
+
+{% endblock %}

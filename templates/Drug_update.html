@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Drug Detail Upload
+{% endblock %}
+
+{% block container %}
+<br>
+<br>
+<br>
+{% if messages %}
+<ul class="messages">
+	<li{% if message.tags %} class="{{ message.tags }}" {% endif %}> {{ message}}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+
+
+<div class="container"> 
+ 
+	<form method='post' enctype="multiform/form-data">
+	{% csrf_token %}
+	<br>
+	Pill Name:<br>
+	{{form.pillname }}
+	<br>
+	Side Effects <br>
+	{{ form.sideeffects}}
+	<br>
+	Warning:<br>
+	{{ form.warning }}<br>
+	Dosage<br>
+	{{ form.dosage }}
+	<br>
+	<input type="submit" name="submit" value="Submit Form">
+	</input>
+	</form>
+
+</div>
+
+{% endblock %}
+
+
+	<form method="post" enctype="multipart/form-data">
